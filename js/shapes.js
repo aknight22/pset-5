@@ -24,9 +24,18 @@ window.onload = function() {
     document.getElementById("pyramid").onclick = drawPyramid;/*Exercise 6 (extra credit).*/
 }
 const sayHello = function() {
-    // write your exercise 1 code here
+  const canvas = document.getElementById('student-canvas-1');
+  const ctx = canvas.getContext('2d');
     let message = window.prompt("Message:");
+while (message.length > 50){
+  message = window.prompt("Message:");
+}
+ctx.clearRect(0,0, canvas.width, canvas.height);
+  ctx.font = '48px sans-serif';
+  ctx.strokeText(message, 30, 70);
 };
+// make it clear when you press cancel!
+
 
 const drawRectangle = function() {
     // write your exercise 2 code here

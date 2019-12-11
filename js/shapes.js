@@ -26,19 +26,35 @@ window.onload = function() {
 const sayHello = function() {
   const canvas = document.getElementById('student-canvas-1');
   const ctx = canvas.getContext('2d');
-    let message = window.prompt("Message:");
-while (message.length > 50){
-  message = window.prompt("Message:");
-}
-ctx.clearRect(0,0, canvas.width, canvas.height);
-  ctx.font = '48px sans-serif';
-  ctx.strokeText(message, 30, 70);
-};
-// make it clear when you press cancel!
+  ctx.clearRect(0,0, canvas.width, canvas.height);
 
+  let message = window.prompt("Message:");
+
+  while (message !== null && message.length > 50){
+    message = window.prompt("Message:");
+  }
+
+  if (message !== null) {
+    ctx.font = '48px sans-serif';
+    ctx.strokeText(message, 30, 70, 994);
+  }
+};
 
 const drawRectangle = function() {
-    // write your exercise 2 code here
+  const secondcanvas = document.getElementById('student-canvas-2');
+  const ctx2 = secondcanvas.getContext('2d');
+  ctx2.clearRect(0,0, secondcanvas.width, secondcanvas.height);
+
+    let width = window.prompt("Width:");
+    let height = window.prompt("Height:");
+    let x = window.prompt("X:");
+    let y = window.prompt("Y:");
+
+if (width >= 1 && width <= 1024 && height >= 1 && height <= 512 && x >= 1 && y >= 1){
+    ctx2.strokeRect(x, y, width, height)
+  }
+
+  // make it ask for correct numbers
 };
 
 const drawColoredRectangle = function() {

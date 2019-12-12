@@ -52,9 +52,16 @@ const drawRectangle = function() {
 
     while (width < 1 || width > 1024 || height < 1 || height > 512 || x < 1 || x > 1024 || y < 1 || y > 1024){
 
-
         if (width == null || height == null || x == null || y == null){
+          ctx2.clearRect(0,0, secondcanvas.width, secondcanvas.height);
           break;
+        }
+        if (isNaN(width) || isNaN(height) || isNaN(x) || isNaN(y)){
+          window.alert("One of your values is not a number.")
+          width = window.prompt("Width:");
+          height = window.prompt("Height:");
+          x = window.prompt("X:");
+          y = window.prompt("Y:");
         }
         if (width < 1 || width > 1024){
           window.alert("Width must be between 1 and 1024.")
@@ -84,16 +91,16 @@ const drawRectangle = function() {
           x = window.prompt("X:");
           y = window.prompt("Y:");
         }
-      }
-
-// this is not working,get it fixed
-
-
 if (width >= 1 && width <= 1024 && height >= 1 && height <= 512 && x >= 1 && y >= 1){
     ctx2.strokeRect(x, y, width, height)
   }
-
-  // make it ask for correct numbers
+if (x + width > 1024 || y + height > 512){
+  window.alert("Your rectangle wont fit on the canvas.")
+  width = window.prompt("Width:");
+  height = window.prompt("Height:");
+  x = window.prompt("X:");
+  y = window.prompt("Y:");
+}
 };
 
 const drawColoredRectangle = function() {

@@ -46,15 +46,15 @@ const drawRectangle = function() {
   ctx2.clearRect(0,0, secondcanvas.width, secondcanvas.height);
 
     let width = 0;
-    let height = 0);
+    let height = 0;
     let x = 0;
     let y = 0;
 
     do {
-      width = window.prompt("Width:");
-      height = window.prompt("Height:");
-      x = window.prompt("X:");
-      y = window.prompt("Y:");
+       width = window.prompt("Width:");
+       height = window.prompt("Height:");
+       x = window.prompt("X:");
+       y = window.prompt("Y:");
 
       if (width == null || height == null || x == null || y == null){
           ctx2.clearRect(0,0, secondcanvas.width, secondcanvas.height);
@@ -74,15 +74,29 @@ const drawRectangle = function() {
       }
       if (y < 1 || y > 1024){
         window.alert("Your y-coordinate must be between 1 and 512.")
-      }
-      if (x + width > 1024 || y + height > 512){
-        window.alert("Your rectangle wont fit on the canvas.")
-      }
-    }
-    while (width < 1 || width > 1024 || height < 1 || height > 512 || x < 1 || x > 1024 || y < 1 || y > 1024 || isNaN(width) || isNaN(height) || isNaN(x) || isNaN(y) || x + width > 1024 || y + height > 512){
+      if (Number(x + width > 1024 || y + height > 512)){
+          window.alert("Your rectangle wont fit on the canvas.")
         }
+      }
+
+    }while (width < 1 ||
+      width > 1024 ||
+      height < 1 ||
+      height > 512 ||
+      x < 1 ||
+      x > 1024 ||
+      y < 1 ||
+      y > 1024 ||
+      isNaN(width) ||
+      isNaN(height) ||
+      isNaN(x) ||
+      isNaN(y)||
+      x + width > 1024 ||
+      y + height > 512);
+
 if (width >= 1 && width <= 1024 && height >= 1 && height <= 512 && x >= 1 && y >= 1){
     ctx2.strokeRect(x, y, width, height)
+
   }
 };
 

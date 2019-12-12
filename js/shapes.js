@@ -45,62 +45,45 @@ const drawRectangle = function() {
   const ctx2 = secondcanvas.getContext('2d');
   ctx2.clearRect(0,0, secondcanvas.width, secondcanvas.height);
 
-    let width = window.prompt("Width:");
-    let height = window.prompt("Height:");
-    let x = window.prompt("X:");
-    let y = window.prompt("Y:");
+    let width = 0;
+    let height = 0);
+    let x = 0;
+    let y = 0;
 
-    while (width < 1 || width > 1024 || height < 1 || height > 512 || x < 1 || x > 1024 || y < 1 || y > 1024){
+    do {
+      width = window.prompt("Width:");
+      height = window.prompt("Height:");
+      x = window.prompt("X:");
+      y = window.prompt("Y:");
 
-        if (width == null || height == null || x == null || y == null){
+      if (width == null || height == null || x == null || y == null){
           ctx2.clearRect(0,0, secondcanvas.width, secondcanvas.height);
           break;
         }
-        if (isNaN(width) || isNaN(height) || isNaN(x) || isNaN(y)){
-          window.alert("One of your values is not a number.")
-          width = window.prompt("Width:");
-          height = window.prompt("Height:");
-          x = window.prompt("X:");
-          y = window.prompt("Y:");
-        }
-        if (width < 1 || width > 1024){
-          window.alert("Width must be between 1 and 1024.")
-           width = window.prompt("Width:");
-           height = window.prompt("Height:");
-           x = window.prompt("X:");
-           y = window.prompt("Y:");
-        }
-        if (height < 1 || height > 512){
-          window.alert("Height must be between 1 and 512.")
-          width = window.prompt("Width:");
-          height = window.prompt("Height:");
-          x = window.prompt("X:");
-          y = window.prompt("Y:");
-        }
-        if (x < 1 || x > 1024){
-          window.alert("Your x-coordinate must be between 1 and 1024.")
-          width = window.prompt("Width:");
-          height = window.prompt("Height:");
-          x = window.prompt("X:");
-          y = window.prompt("Y:");
-        }
-        if (y < 1 || y > 1024){
-          window.alert("Your y-coordinate must be between 1 and 512.")
-          width = window.prompt("Width:");
-          height = window.prompt("Height:");
-          x = window.prompt("X:");
-          y = window.prompt("Y:");
+      if (isNaN(width) || isNaN(height) || isNaN(x) || isNaN(y)){
+        window.alert("One of your values is not a number.")
+      }
+      if (width < 1 || width > 1024){
+        window.alert("Width must be between 1 and 1024.")
+      }
+      if (height < 1 || height > 512){
+        window.alert("Height must be between 1 and 512.")
+      }
+      if (x < 1 || x > 1024){
+        window.alert("Your x-coordinate must be between 1 and 1024.")
+      }
+      if (y < 1 || y > 1024){
+        window.alert("Your y-coordinate must be between 1 and 512.")
+      }
+      if (x + width > 1024 || y + height > 512){
+        window.alert("Your rectangle wont fit on the canvas.")
+      }
+    }
+    while (width < 1 || width > 1024 || height < 1 || height > 512 || x < 1 || x > 1024 || y < 1 || y > 1024 || isNaN(width) || isNaN(height) || isNaN(x) || isNaN(y) || x + width > 1024 || y + height > 512){
         }
 if (width >= 1 && width <= 1024 && height >= 1 && height <= 512 && x >= 1 && y >= 1){
     ctx2.strokeRect(x, y, width, height)
   }
-if (x + width > 1024 || y + height > 512){
-  window.alert("Your rectangle wont fit on the canvas.")
-  width = window.prompt("Width:");
-  height = window.prompt("Height:");
-  x = window.prompt("X:");
-  y = window.prompt("Y:");
-}
 };
 
 const drawColoredRectangle = function() {

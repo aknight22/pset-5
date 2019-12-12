@@ -50,6 +50,28 @@ const drawRectangle = function() {
     let x = window.prompt("X:");
     let y = window.prompt("Y:");
 
+    while (width < 1 || width > 1024 || height < 1 || height > 512 || x < 1 || x > 1024 || y < 1 || y > 1024){
+        width = window.prompt("Width:");
+        height = window.prompt("Height:");
+        x = window.prompt("X:");
+        y = window.prompt("Y:");
+        if (width < 1 || width > 1024){
+          window.alert("Width must be between 1 and 1024.")
+        }
+        if (height < 1 || height > 512){
+          window.alert("Height must be between 1 and 512.")
+        }
+        if (x < 1 || x > 1024){
+          window.alert("Your x-coordinate must be between 1 and 1024.")
+        }
+        if (y < 1 || y > 1024){
+          window.alert("Your y-coordinate must be between 1 and 512.")
+        }
+      }
+
+// this is not working,get it fixed
+
+
 if (width >= 1 && width <= 1024 && height >= 1 && height <= 512 && x >= 1 && y >= 1){
     ctx2.strokeRect(x, y, width, height)
   }
